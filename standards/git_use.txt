@@ -1,0 +1,69 @@
+################################################################################
+description: Explains how to use git for this project.
+contributors: Connor Stone
+date: 17-12-2015
+################################################################################
+
+# Git
+#-------------------------------------------------------------------------------
+Git is the version control system used for this project, it manages files
+and ensures that the development code is organized in a consistent manner.
+All developers are to create new branches for work they are doing and
+regularly push their work to the github account:
+git@github.com:ConnorStone628/SmartBet.git
+
+This document specifies how this is to be done.
+
+# Cloning
+#-------------------------------------------------------------------------------
+To begin work on the project one must clone the repository. To do this on
+linux simply open a terminal navegate to the folder in which you want the
+project to be and type:
+git clone git@github.com:ConnorStone628/SmartBet.git
+
+This will make a copy of the main branch on your computer. Do not modify
+the code that you have just copied!
+
+# Pulling
+#-------------------------------------------------------------------------------
+As the project progresses, updates will be made on the main branch. Thus
+you should regularly pull the changes using:
+git pull
+
+this will update the main branch on your computer.
+
+# Branching
+#-------------------------------------------------------------------------------
+Once you have a copy of the main branch you can create your own branch
+using the following:
+git checkout -b <your initials>-<branch name>
+
+Everyone should make their initials the beginning of their branch as
+suggested above.
+
+# Status
+#-------------------------------------------------------------------------------
+To check the status of your git repository on your computer, type:
+git status
+
+this will tell you what branch you are on and what files you have
+modified since your last commit.
+
+# Commits
+#-------------------------------------------------------------------------------
+You should frequently commit your code using the following command:
+git commit -m "<description of changes>"
+
+This will save the changes locally on your computer. It is useful
+to make many commits as it is then easier to go back and track
+your progress.
+
+# Pushing
+#-------------------------------------------------------------------------------
+You should frequently push your work to the github account using:
+git push origin <your branch name>
+
+Once you have done this, your changes will be saved on the github.
+You may not be allowed to push to the github if you have not been
+added to the list of contributors. Contact Connor Stone or Mathiew
+Taylor to be added.
