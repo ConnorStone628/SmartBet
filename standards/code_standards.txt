@@ -2,7 +2,23 @@
 description: Lists and explains the standards to use when writing code
 for this project.
 contributors: Connor Stone
+Date: 16-12-2015
 ################################################################################
+
+# How the standards are applied
+#-------------------------------------------------------------------------------
+It is expected that during development, changes will be made to your
+code frequently. It would be unreasonable to expect these standards
+to be applied at all times. The standards below are to represent the
+state that finished code should be in. Any code to be merged with
+the main branch will follow these basic outlines.
+
+Ambiguous cases are bound to arise. Where these outlines are not
+explicit, try to follow PEP 8 which is the general standard for
+python. The PEP 8 rules will not be strictly enforced on merges.
+If PEP 8 does not resolve your issue and you believe that it has an
+impact on the readability of the code contact Connor Stone or
+Mathiew Taylor. 
 
 # Major section headings
 ################################################################################
@@ -11,12 +27,139 @@ The characters are to be the standard comment characters for the file.
 the standard comment charachter for each type is:
 python: %
 .txt: #
-C++: /
-A title at the top of the section is prefered, but not neccessary. the
-exact deffinition of a major section 
+C++: //
+
+A title at the top of the section is prefered, but not neccessary. If
+there is a title, it should be capetalized as a sentence. Major
+sections represent groups of related functions or deffinitions, there
+should be very few in a given file. 
 
 # Minor section headings
 #-------------------------------------------------------------------------------
 Minor sections begin with the comment character and have a row of "-"
 characters until the width is 80. examples of minor sections are:
-functions, classes, and class methods
+functions, classes, and class methods. A title at the top is prefered
+but not necessary. If there is a title, it should be capetalized as a
+sentence.
+
+# Commenting
+#-------------------------------------------------------------------------------
+Comments should be placed immediately above the line of code they
+reference. Comments at the end of a line should be used only for
+extremely brief statements. There should be a single space between
+the comment character and the statement (ie "# my comment").
+
+Comments should be above any loop/group of loops, function, class,
+or block of code with a single purpose. A user should be able to
+read only the comments and understand what the code does. However,
+the comments do not need to explain to how the code accomplishes its
+task. Except for specific cases where the process is of primary interest.
+
+# White space
+#-------------------------------------------------------------------------------
+Major and minor sections always have 1 or 2 blank lines above
+them. Functions and classes have a blank line after their
+definition. The line with "return" in it at the end of a function
+should have a space above it. Loops have a blank line above and below
+unless nested. If statements do not need a blank line above them.
+variable declarations should have a blank line above and below them,
+when doing multiple declarations they should come in a block with the
+blank line above and below. Comments do not count as white space.
+
+# Header
+#-------------------------------------------------------------------------------
+The beginning of every file should start as this one, with lines of
+80 characters of the comment character for the type of file above
+and below the statement. It should include a description of the
+purpose of the code found inside, a list of contributors, and a date
+of first creation. The description should be brief, just an overview.
+The list of contributors includes everyone who has written in the
+file. The date should be in day-month-year order, formatted as: dd-mm-yyyy
+
+# Variables
+#-------------------------------------------------------------------------------
+All variables are to be exceptionally descriptive. Up to 25 characters
+for a single variable is acceptable. Past that should only be for
+especially tricky concepts, which may be better suited with abbreviation
+and a comment above explaining it. The variables should be written in
+all lower case, with "_" seperating ALL words. Yes, everything in lower
+case, this includes acronyms like "nhl", do not write "NHL". Examples
+include:
+this_is_a_long_variable
+shorter_variable
+brief
+
+Words in the variables should not be shortened, for example one
+cannot turn "variable" into "var" or "v". Acronyms should be used
+when they are the common way of refering to something, for example: "nhl",
+"nfl", and "mlb" for "National Hockey League", "National Football League",
+and "Major League Baseball" respectively.
+
+# Line length
+#-------------------------------------------------------------------------------
+Lines should not in general exceede 80 characters. Any line which does go
+past this will likely need a comment above it to explain what is happening.
+In python the nesting/indenting scheme can lead to artifically long lines,
+in these cases it is not an issue to pass 80 characters as long as the line
+length is kept within reasonable bounds. Function and class definitions do
+not need to fit line length requirements.
+
+# Output
+#-------------------------------------------------------------------------------
+All functions with print statments should have a verbosity parameter to
+turn off all output. This is implimented as:
+print "hello world"
+to
+if verbose: print "hello world"
+
+In the future all output will be directed to logs, but this is currently
+not used. Output is considered desireable and should be very explicit
+about what is happeneing at any stage of the run which may crash. The
+output should not, however, include large amounts of data which would
+flood the output screen, status updates are preferable.
+
+# Functions
+#-------------------------------------------------------------------------------
+All functions must have a comment above them which specifies the expected
+input and the type for that input, also a line describing the type of
+information that will be returned. Any function intended for internal
+purposes only should begin with a "_". The name of the function should
+be in camel case, for example: _MyInternalFunction. The name of the
+function should be descriptive in a similar manner to variables.
+The arguments for a function should be treated like variables, in terms
+of how descriptive they are.
+
+# Classes
+#-------------------------------------------------------------------------------
+Classes should be treated in the same way as functions.
+
+# Example Code
+################################################################################
+
+# This is an example function to do a thing
+# variable_one: example first variable (list)
+# variable_two: example second variable (double)
+# variable_with_default: example variable with a default value (str)
+# returns: a count of the number of variable_one items
+#-------------------------------------------------------------------------------
+def _MyFunction(variable_one, variable_two, variable_with_default = default_value):
+
+    # Declaring variables
+    thing_one = 0
+    thing_two = 1.0
+    thing_three = [1, 2, 3, 4]
+
+    # Check for items from the input list
+    for item in variable_one:
+    	thing_one += 1 # Count
+	if item in thing_three:
+	   print thing_two
+
+    # Notify user of a condition
+    if variable_two == thing_two:
+        print "something happened"
+
+    # Notify the user of the value of this variable
+    print variable_with_default
+
+    return thing_one
