@@ -18,28 +18,39 @@ explicit, try to follow PEP 8 which is the general standard for
 python. The PEP 8 rules will not be strictly enforced on merges.
 If PEP 8 does not resolve your issue and you believe that it has an
 impact on the readability of the code contact Connor Stone or
-Mathiew Taylor. 
+Mathew Taylor.
+
+# Code performance
+#-------------------------------------------------------------------------------
+When writing with python one should keep in mind the readability of the
+code. The primary focus of any python code is to be readable, consise,
+and maintainable.
+
+When writing in C++ the focus is performance. This code may be less
+general and more obscure if it provides apreciable improvments to speed.
+If it is intended to be used frequently and by many users, it should come
+with a wrapper in python that can call it appropriately.
 
 # Major section headings
 ################################################################################
 All major sections begin with 80 characters in a line; as shown above.
 The characters are to be the standard comment characters for the file.
-the standard comment charachter for each type is:
+the standard comment character for each type is:
 python: %
 .txt: #
 C++: //
 
-A title at the top of the section is prefered, but not neccessary. If
-there is a title, it should be capetalized as a sentence. Major
-sections represent groups of related functions or deffinitions, there
+A title at the top of the section is preferred, but not necessary. If
+there is a title, it should be capitalized as a sentence. Major
+sections represent groups of related functions or definitions, there
 should be very few in a given file. 
 
 # Minor section headings
 #-------------------------------------------------------------------------------
 Minor sections begin with the comment character and have a row of "-"
 characters until the width is 80. examples of minor sections are:
-functions, classes, and class methods. A title at the top is prefered
-but not necessary. If there is a title, it should be capetalized as a
+functions, classes, and class methods. A title at the top is preferred
+but not necessary. If there is a title, it should be capitalized as a
 sentence.
 
 # Commenting
@@ -82,7 +93,7 @@ All variables are to be exceptionally descriptive. Up to 25 characters
 for a single variable is acceptable. Past that should only be for
 especially tricky concepts, which may be better suited with abbreviation
 and a comment above explaining it. The variables should be written in
-all lower case, with "_" seperating ALL words. Yes, everything in lower
+all lower case, with "_" separating ALL words. Yes, everything in lower
 case, this includes acronyms like "nhl", do not write "NHL". Examples
 include:
 this_is_a_long_variable
@@ -91,30 +102,30 @@ brief
 
 Words in the variables should not be shortened, for example one
 cannot turn "variable" into "var" or "v". Acronyms should be used
-when they are the common way of refering to something, for example: "nhl",
+when they are the common way of referring to something, for example: "nhl",
 "nfl", and "mlb" for "National Hockey League", "National Football League",
 and "Major League Baseball" respectively.
 
 # Line length
 #-------------------------------------------------------------------------------
-Lines should not in general exceede 80 characters. Any line which does go
+Lines should not in general exceed 80 characters. Any line which does go
 past this will likely need a comment above it to explain what is happening.
-In python the nesting/indenting scheme can lead to artifically long lines,
+In python the nesting/indenting scheme can lead to artificially long lines,
 in these cases it is not an issue to pass 80 characters as long as the line
 length is kept within reasonable bounds. Function and class definitions do
 not need to fit line length requirements.
 
 # Output
 #-------------------------------------------------------------------------------
-All functions with print statments should have a verbosity parameter to
-turn off all output. This is implimented as:
+All functions with print statements should have a verbosity parameter to
+turn off all output. This is implemented as:
 print "hello world"
 to
 if verbose: print "hello world"
 
 In the future all output will be directed to logs, but this is currently
-not used. Output is considered desireable and should be very explicit
-about what is happeneing at any stage of the run which may crash. The
+not used. Output is considered desirable and should be very explicit
+about what is happening at any stage of the run which may crash. The
 output should not, however, include large amounts of data which would
 flood the output screen, status updates are preferable.
 
