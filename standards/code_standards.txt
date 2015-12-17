@@ -1,0 +1,22 @@
+################################################################################
+description: Lists and explains the standards to use when writing code
+for this project.
+contributors: Connor Stone
+################################################################################
+
+# Major section headings
+################################################################################
+All major sections begin with 80 characters in a line; as shown above.
+The characters are to be the standard comment characters for the file.
+the standard comment charachter for each type is:
+python: %
+.txt: #
+C++: /
+A title at the top of the section is prefered, but not neccessary. the
+exact deffinition of a major section 
+
+# Minor section headings
+#-------------------------------------------------------------------------------
+Minor sections begin with the comment character and have a row of "-"
+characters until the width is 80. examples of minor sections are:
+functions, classes, and class methods
