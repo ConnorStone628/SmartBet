@@ -1,0 +1,37 @@
+################################################################################
+description: Lists and explains the conventions relating to files and
+thier naming.
+contributors: Connor Stone
+date: 17-12-2015
+################################################################################
+
+# Naming
+#-------------------------------------------------------------------------------
+Files should be named descriptively in lower case with an "_" between
+words. Shortforms should not be used, such as "word" to "wrd".
+Acronyms are to be used when they are the standard, however they
+should also be in lower case, such as "nhl" for "National Hockey
+League".
+
+# Size
+#-------------------------------------------------------------------------------
+Files should be kept short. Each bit of code is to have a specific/focused
+purpose. The version control system used for this project is git, which
+performs best when managing many small files as opposed to few large
+files. It is also easier to track the flow of code this way as well
+as promoting reusability.
+
+# Location
+#-------------------------------------------------------------------------------
+It is imperitive that files are organized in the directory structure in
+a logical way. It should be clear where to put a new file based on its
+purpose, when this is not the case contact Connor Stone or Mathiew
+Taylor.
+
+When searching for an apropriate place to put a new file keep in mind
+that your code should be written in the most general way possible
+and thus it should be possible to place the file in highest reasonable
+point in the directory tree. This encourages reusability of code which
+cuts down on complexity dramatically. You should not have to solve
+problems that have already been solved nor should others have to solve
+problems that you have tackled.
