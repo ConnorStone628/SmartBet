@@ -18,7 +18,7 @@ explicit, try to follow PEP 8 which is the general standard for
 python. The PEP 8 rules will not be strictly enforced on merges.
 If PEP 8 does not resolve your issue and you believe that it has an
 impact on the readability of the code contact Connor Stone or
-Mathew Taylor.
+Matthew Taylor.
 
 # Code performance
 #-------------------------------------------------------------------------------
@@ -36,9 +36,10 @@ with a wrapper in python that can call it appropriately.
 All major sections begin with 80 characters in a line; as shown above.
 The characters are to be the standard comment characters for the file.
 the standard comment character for each type is:
-python: %
+python: #
 .txt: #
 C++: //
+LaTeX: %
 
 A title at the top of the section is preferred, but not necessary. If
 there is a title, it should be capitalized as a sentence. Major

@@ -17,7 +17,7 @@ This document specifies how this is to be done.
 # Cloning
 #-------------------------------------------------------------------------------
 To begin work on the project one must clone the repository. To do this on
-linux simply open a terminal navegate to the folder in which you want the
+Linux simply open a terminal navigate to the folder in which you want the
 project to be and type:
 git clone git@github.com:ConnorStone628/SmartBet.git
 
@@ -65,5 +65,5 @@ git push origin <your branch name>
 
 Once you have done this, your changes will be saved on the github.
 You may not be allowed to push to the github if you have not been
-added to the list of contributors. Contact Connor Stone or Mathiew
+added to the list of contributors. Contact Connor Stone or Matthew
 Taylor to be added.
