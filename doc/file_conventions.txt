@@ -9,9 +9,9 @@ date: 17-12-2015
 #-------------------------------------------------------------------------------
 Files should be named descriptively in lower case with an "_" between
 words. Short forms should not be used, such as "word" to "wrd".
-Acronyms are to be used when they are the standard, however they
-should also be in lower case, such as "nhl" for "National Hockey
-League".
+Acronyms are to be used only when they are the standard AND the name is
+unweildy otherwise. Note they should also be in lower case, such as "nhl"
+for "National Hockey League".
 
 # Size
 #-------------------------------------------------------------------------------
@@ -35,3 +35,12 @@ point in the directory tree. This encourages reusability of code which
 cuts down on complexity dramatically. You should not have to solve
 problems that have already been solved nor should others have to solve
 problems that you have tackled.
+
+# The "shared" folder
+#-------------------------------------------------------------------------------
+This folder is intended for methods which can be used by anyone. They
+should be written as generalized as possible and very well documented.
+You must also write a quick description in the "README" file so that
+its capacity is searchable among all the others. Please think long
+and hard about how you should name items in these files as it must be
+intuitive for others to take full advantage of it.

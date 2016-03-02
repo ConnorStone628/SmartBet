@@ -4,3 +4,29 @@ contributors: Connor Stone
 Date: 29-02-2016
 ################################################################################
 
+# The "__init__.py" files
+#-------------------------------------------------------------------------------
+These files are in every code related directory. They are to provide the only
+source of user access to the methods in this directory. This way you can write
+code which is not for the end user, but is needed for a very specific task.
+This allows you to modularize your code as much as possible, making everyone's
+life easier.
+
+# Scope in code
+#-------------------------------------------------------------------------------
+At no point should you "import" code from outside your current directory. Your
+code should only use that which is in the same level of the directory tree or
+lower (in sub-folders). This means, for example, that code in the "lineup" and
+"scoring" directories cannot import code from the database directory. If your
+code needs to write to the database or read from it, then you do not do this
+directly. Insted you request a database object as an argument to your function
+or class and work with that.
+
+The only case where it is ok to use code from above your current node in the
+directory tree is when using a shared method. This can be done by using the
+following import:
+
+from scripts.shared import <module you want>
+
+You are encouraged to modularize your code as much as possible so that it may
+be put in the shared folder. This makes everyone's life easier. 
