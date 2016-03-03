@@ -1,0 +1,13 @@
+################################################################################
+# Description: Explains what we want the code in the scoring directory to
+# accomplish.
+# Contributors: Connor Stone
+# Date: 03-03-2016
+################################################################################
+
+# Objective
+#-------------------------------------------------------------------------------
+Your function must take as an argument a list of players, a set of rules
+for how each players score will be determined, and access to the database.
+It must then assign a score to each player that is a prediction of the
+score that they will achieve in the next game using the given rules.

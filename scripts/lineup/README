@@ -1,0 +1,14 @@
+################################################################################
+# Description: Explains what we want the code in the lineup directory to
+# accomplish.
+# Contributors: Connor Stone
+# Date: 03-03-2016
+################################################################################
+
+# Objective
+#-------------------------------------------------------------------------------
+Your function must take as an argument an object which provides you with a
+list of players, a format for the team (ie 2 ceneters, 3 forwards, etc...),
+and a spending limit. Associated with each player is a cost and a score.
+The function must return the highest scoring legal team that can be achieved
+with these constraints.
