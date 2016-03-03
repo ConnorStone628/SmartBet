@@ -1,0 +1,8 @@
+################################################################################
+# Description: This is a place for calculations, here we determine the base-
+# line performance needed to break even on average. We will be interested in
+# expected perfomance and variance. All documents should be in LaTeX with
+# accompanying .tex files.
+# Contributors: Connor Stone
+# Date: 03-03-2016
+################################################################################

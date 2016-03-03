@@ -1,0 +1,7 @@
+################################################################################
+# Description: Contains the performance of lineup selection methods. The
+# perfomance is evaluated as its ability to produce an allowed, high score
+# team. This is measured against various metrics.
+# Contributors: Connor Stone
+# Date: 03-03-2016
+################################################################################

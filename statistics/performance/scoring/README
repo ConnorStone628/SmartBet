@@ -1,0 +1,6 @@
+################################################################################
+# Description: Here we track the performance of various scoring methods. The
+# standard against which they are measured is simple score averaging.
+# Contributors: Connor Stone
+# Date: 03-03-2016
+################################################################################
