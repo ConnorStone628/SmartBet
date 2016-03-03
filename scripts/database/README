@@ -1,0 +1,16 @@
+################################################################################
+# Description: Explains what we want the code in the database directory to
+# accomplish.
+# Contributors: Connor Stone
+# Date: 03-03-2016
+################################################################################
+
+# Objective
+#-------------------------------------------------------------------------------
+This directory shall contain all code needed to interact with the database.
+By importing a Database object you should have the ability to read from
+and write to the database depending on the various settings. This database
+will hold all information which has been scraped from various websites.The
+database must also be able to maintain itself in the most automated way
+possible. It should be able to spot missing elements and correct them where
+possible, then notify the user where it cannot be corrected. 
