@@ -5,3 +5,7 @@
 # Contributors: Connor Stone
 # Date: 02-03-2016
 ################################################################################
+
+def testing():
+    print 'this is a test'
+    
