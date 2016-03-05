@@ -10,13 +10,14 @@
 class Lineup(object):
 
     # initializes the lineup with a set of positions representing the layout for the game type
-    # positions: Unique strings representing the different positions (iterable of str)
+    # positions: List of unique strings representing the different positions (iterable of str)
     # initiallineup: dictionary indexed by the "positions" variable. Each element is a
     #     dictionary of information about that player (dictionary of dictionaries)
     # returns: nothing
     #-------------------------------------------------------------------------------
     def __init__(self, positions, initiallineup = None):
-        
+
+        self.positions = positions
         if initiallineup != None:
             self.players = initiallineup
         else:

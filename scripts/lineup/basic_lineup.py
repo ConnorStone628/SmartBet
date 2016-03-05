@@ -15,5 +15,7 @@ class BasicLineup(LineupGenerator):
     # Randomly searches to find groups that are acceptable and have high score
     #-------------------------------------------------------------------------------
     def GenerateLineup(self):
+
+        
         
         return self.lineup
