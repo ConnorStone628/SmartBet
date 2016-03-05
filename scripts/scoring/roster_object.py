@@ -15,10 +15,9 @@ class Roster(object):
     def __init__(self, players):
 
         self.players = players
-        self.scores = {}
         
         for p in players:
-            self.scores[p['Id']] = -1
+            self.players[p]['Score'] = -1
 
     # Sets the roster score for a player
     # player_id: the unique id for a player
@@ -27,7 +26,7 @@ class Roster(object):
     def SetScore(self, player_id, score):
 
         try:
-            self.scores[player_id] = score
+            self.players[player_id]['Score'] = score
         except:
             raise ValueError('player_id not in roster')
 
@@ -37,7 +36,7 @@ class Roster(object):
     def GetScore(self, player_id):
         
         try:
-            return self.scores[player_id]
+            return self.players[player_id]['Score']
         except:
             raise ValueError('player_id not in roster')
 
@@ -51,12 +50,6 @@ class Roster(object):
         except:
             raise ValueError('player_id not in roster')
             
-    # Returns a list of all the player Id's in the roster
-    #-------------------------------------------------------------------------------
-    def GetIds(self):
-        
-        return self.players.keys()
-
     # Adds a player to the roster
     # player: A dictionary of information about a player
     #-------------------------------------------------------------------------------
@@ -64,7 +57,7 @@ class Roster(object):
 
         if not player['Id'] in self.players:
             self.players[player['Id']] = player
-            self.scores[player['Id']] = -1
+            self.players[player['Id']]['Score'] = -1
         else:
             raise ValueError('player already in roster')            
 
@@ -77,6 +70,28 @@ class Roster(object):
             del players[player_id]
         except:
             raise ValueError('player_id not in roster')    
+
+    # Returns a list of all the player Id's in the roster
+    #-------------------------------------------------------------------------------
+    def GetIds(self):
+        
+        return self.players.keys()
+
+    def GetGroupedAttributes(self, attributes):
+
+        grouped = {}
+        for p in self.players:
+            attr = []
+            for a in attributes:
+                attr.append(p[a])
+            try:
+                grouped[p['Position']].append(attr)
+            except:
+                grouped[p['Position']] = [attr]
+
+        return grouped
+
+        
 
     # Checks if all the players have an associated score
     #-------------------------------------------------------------------------------

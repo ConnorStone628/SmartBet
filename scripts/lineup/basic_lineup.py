@@ -16,6 +16,6 @@ class BasicLineup(LineupGenerator):
     #-------------------------------------------------------------------------------
     def GenerateLineup(self):
 
-        
+        ids = self.roster.GetIds()
         
         return self.lineup
