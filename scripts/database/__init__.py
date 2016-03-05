@@ -4,8 +4,19 @@
 # Date: 02-03-2016
 ################################################################################
 
+from interface_methods import get as _get
+from interface_methods import write as _write
+
 
 class Database:
 
     def __init__(self, readonly = True):
         self.readonly = readonly
+
+    # Retrieve information from the database
+    def Get(*args, **kwargs):
+        return _get(*args, **kwargs)
+
+    # Write information to the database
+    def Write(*args, **kwargs):
+        return _Write(*args, **kwargs)
