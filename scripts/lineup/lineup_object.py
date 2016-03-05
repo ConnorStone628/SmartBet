@@ -75,6 +75,7 @@ class Lineup(object):
     # returns: total cost
     #-------------------------------------------------------------------------------
     def Cost(self):
+
         totalcost = 0
 
         # sum the salary

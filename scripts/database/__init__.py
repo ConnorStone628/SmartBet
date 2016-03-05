@@ -10,7 +10,8 @@ from interface_methods import write as _write
 
 class Database:
 
-    def __init__(self, readonly = True):
+    def __init__(self, location, readonly = True):
+        self.location = location
         self.readonly = readonly
 
     # Retrieve information from the database

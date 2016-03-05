@@ -4,6 +4,24 @@ contributors: Connor Stone
 date: 17-12-2015
 ################################################################################
 
+# Basic startup
+#-------------------------------------------------------------------------------
+For those using a unix device, here is how you can get started on the
+project:
+~$ git clone git@github.com:ConnorStone628/SmartBet.git
+~$ git checkout -b <your new branch name>
+<make all the changes you want>
+~$ git add <list all the files you changed, or just write: -A>
+~$ git commit -m "<write an explanation of what you did>"
+~$ git push origin <your branch name>
+
+At any point in your editing, you can write "git status" to see all the
+files where you made changes. For those on windows, you will likely
+need an interface program. I found this online:
+https://git-for-windows.github.io/
+but I have no idea how it performs. Whichever you use, it is likely
+that the commands are the same.
+
 # Git
 #-------------------------------------------------------------------------------
 Git is the version control system used for this project, it manages files
@@ -67,3 +85,9 @@ Once you have done this, your changes will be saved on the github.
 You may not be allowed to push to the github if you have not been
 added to the list of contributors. Contact Connor Stone or Matthew
 Taylor to be added.
+
+# Merging
+#-------------------------------------------------------------------------------
+You will not do merges directly. Just tell Matthew or Connor that
+you have finished your modifications, or have completed some
+independantly functioning chunk of code and we will do the merge.

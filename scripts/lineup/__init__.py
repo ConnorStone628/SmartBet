@@ -4,3 +4,5 @@
 # Authors: Connor Stone
 # Date: 02-03-2016
 ################################################################################
+
+from basic_lineup import BasicLineup
