@@ -4,5 +4,4 @@
 # Date: 02-03-2016
 ################################################################################
 
-def test():
-    print 'all good'
+from basic_scoring import BasicScoring
