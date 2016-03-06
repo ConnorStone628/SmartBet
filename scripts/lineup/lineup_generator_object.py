@@ -16,13 +16,14 @@ class LineupGenerator(object):
     # Initialize the generator
     # roster: a roster object which contains a dictionary of players and scores
     # positions: A list of strings identifying the positions in a lineup
-    # constraints: a dictionary object that contains all the information which
-    #    limits the allowable lineup choices.
+    # parameters: a dictionary object that contains all the information which
+    #    limits the allowable lineup choices. For example, the 'Budget' item
+    #    is the maximum total salary allowed.
     #-------------------------------------------------------------------------------
-    def __init__(self, roster, positions, constraints):
+    def __init__(self, roster, positions, params):
 
         self.roster = roster
-        self.constraints = constraints
+        self.params = params
         self.lineup = Lineup(positions)
 
         # Check that the roster and positions objects do not conflict
@@ -45,11 +46,11 @@ class LineupGenerator(object):
 
         return self.roster
 
-    # Returns the constraint dictionary
+    # Returns the parameter dictionary
     #-------------------------------------------------------------------------------
-    def GetConstraints(self):
+    def GetParams(self):
 
-        return self.constraints
+        return self.params
 
     # Returns the current lineup
     #-------------------------------------------------------------------------------        

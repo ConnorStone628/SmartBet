@@ -17,7 +17,7 @@ class Roster(object):
         self.players = players
         
         for p in players:
-            self.players[p]['Score'] = -1
+            self.players[p]['RosterScore'] = -1
 
     # Sets the roster score for a player
     # player_id: the unique id for a player
@@ -26,7 +26,7 @@ class Roster(object):
     def SetScore(self, player_id, score):
 
         try:
-            self.players[player_id]['Score'] = score
+            self.players[player_id]['RosterScore'] = score
         except:
             raise ValueError('player_id not in roster')
 
@@ -36,7 +36,7 @@ class Roster(object):
     def GetScore(self, player_id):
         
         try:
-            return self.players[player_id]['Score']
+            return self.players[player_id]['RosterScore']
         except:
             raise ValueError('player_id not in roster')
 
@@ -57,7 +57,7 @@ class Roster(object):
 
         if not player['Id'] in self.players:
             self.players[player['Id']] = player
-            self.players[player['Id']]['Score'] = -1
+            self.players[player['Id']]['RosterScore'] = -1
         else:
             raise ValueError('player already in roster')            
 
@@ -77,13 +77,20 @@ class Roster(object):
         
         return self.players.keys()
 
-    def GetGroupedAttributes(self, attributes):
+    # Returns a dictionary of lists, where the list contains information as specified
+    # attributes: list of strings which are player attributes (Make sure one of them
+    #    is 'Id' or you won't know which player is which!). An argument of None will
+    #    just make a group out of the players.
+    def GetGroupedAttributes(self, attributes = None):
 
         grouped = {}
         for p in self.players:
-            attr = []
-            for a in attributes:
-                attr.append(p[a])
+            if attributes == None:
+                attr = p
+            else:
+                attr = []
+                for a in attributes:
+                    attr.append(p[a])
             try:
                 grouped[p['Position']].append(attr)
             except:
@@ -91,14 +98,12 @@ class Roster(object):
 
         return grouped
 
-        
-
     # Checks if all the players have an associated score
     #-------------------------------------------------------------------------------
     def IsScored(self):
 
-        for s in self.scores:
-            if self.scores[s] = -1:
+        for p in self.players:
+            if self.players[p]['RosterScore'] = -1:
                 return False
         else:
             return True

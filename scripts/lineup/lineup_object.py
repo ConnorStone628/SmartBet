@@ -29,7 +29,7 @@ class Lineup(object):
     # Replaces the player at a given position
     # position: position to replace (str)
     # newplayer: all information about the new player (dictioary)
-    # returns: 0 for success, 1 for failure
+    # returns: True for success, False for failure
     #-------------------------------------------------------------------------------
     def ChangePlayer(self, position, newplayer):
         
@@ -38,11 +38,11 @@ class Lineup(object):
             if self.players[p] == None:
                 continue
             elif self.players[p]['Id'] == newplayer['Id']:
-                raise ValueError('newplayer already on team')
+                return False
 
         self.players[position] = newplayer
-        
-        return 0
+
+        return True
 
     # used to access the information for the player at a given position
     # position: which player to look at (str)
@@ -68,7 +68,7 @@ class Lineup(object):
         
         # sum the score
         for p in self.players:
-            totalscore += self.players[p]['Score']
+            totalscore += self.players[p]['RosterScore']
             
         return totalscore
 
@@ -84,24 +84,6 @@ class Lineup(object):
             totalcost += self.players[p]['Salary']
             
         return totalcost
-
-    # produces a formatted string to show the lineup
-    # returns: string to be printed
-    #-------------------------------------------------------------------------------
-    def __str__(self):
-        
-        output = ''
-
-        # construct string of player names
-        for p in self.players:
-            if self.players[p] == None:
-                continue
-            output += p + ': ' + self.players[p]['First Name'] + ' ' + self.players[p]['Last Name'] + ', '
-
-        output += '\nTotal salary: ' + str(self.Salary()) + '\n'
-        output += 'Total Score: ' + str(self.Score()) + '\n'
-        
-        return output
 
     # determines if another lineup is the same
     # otherlineup: lineup object to be compared (lineup)
