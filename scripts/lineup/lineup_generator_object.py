@@ -23,6 +23,7 @@ class LineupGenerator(object):
     def __init__(self, roster, positions, params):
 
         self.roster = roster
+        self.positions = positions
         self.params = params
         self.lineup = Lineup(positions)
 
@@ -31,7 +32,7 @@ class LineupGenerator(object):
         for i in self.roster.GetIds():
             player_positions.append(self.roster.GetPlayer(i)['Position'])
             
-        if len(Set(pos).symmetric_difference(Set(p.strip('0123456789') for p in positions))) != 0:
+        if len(set(player_positions).symmetric_difference(set(p.strip('0123456789') for p in positions))) != 0:
             raise ValueError('Roster and positions objects do not have the same positions.')
         
     # Analyzes the roster to create a lineup

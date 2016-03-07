@@ -5,6 +5,8 @@
 # date: 22-12-2015
 ################################################################################
 
+from copy import deepcopy
+
 # stores information about a lineup
 #-------------------------------------------------------------------------------
 class Lineup(object):
@@ -57,12 +59,14 @@ class Lineup(object):
     #-------------------------------------------------------------------------------
     def GetPlayers(self):
         
-        return copy(self.players)
+        return deepcopy(self.players)
 
     # calculates the total score of the lineup
     # returns: total score
     #-------------------------------------------------------------------------------
     def Score(self):
+
+        if not self.Filled(): return 0
         
         totalscore = 0
         
@@ -72,10 +76,12 @@ class Lineup(object):
             
         return totalscore
 
-    # calculates the salary/cost of the team
+    # Calculates the salary/cost of the team
     # returns: total cost
     #-------------------------------------------------------------------------------
     def Cost(self):
+
+        if not self.Filled(): return 0
 
         totalcost = 0
 
@@ -84,6 +90,16 @@ class Lineup(object):
             totalcost += self.players[p]['Salary']
             
         return totalcost
+
+    # Returns true if every spot on the team is filled, else false
+    #-------------------------------------------------------------------------------
+    def Filled(self):
+
+        for p in self.players:
+            if self.players[p] == None:
+                return False
+                
+        return True
 
     # determines if another lineup is the same
     # otherlineup: lineup object to be compared (lineup)

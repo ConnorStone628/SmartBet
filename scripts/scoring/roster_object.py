@@ -81,20 +81,22 @@ class Roster(object):
     # attributes: list of strings which are player attributes (Make sure one of them
     #    is 'Id' or you won't know which player is which!). An argument of None will
     #    just make a group out of the players.
+    #-------------------------------------------------------------------------------
     def GetGroupedAttributes(self, attributes = None):
 
         grouped = {}
         for p in self.players:
+            player = self.players[p]
             if attributes == None:
-                attr = p
+                attr = player
             else:
                 attr = []
                 for a in attributes:
-                    attr.append(p[a])
+                    attr.append(player[a])
             try:
-                grouped[p['Position']].append(attr)
+                grouped[player['Position']].append(attr)
             except:
-                grouped[p['Position']] = [attr]
+                grouped[player['Position']] = [attr]
 
         return grouped
 
@@ -103,7 +105,7 @@ class Roster(object):
     def IsScored(self):
 
         for p in self.players:
-            if self.players[p]['RosterScore'] = -1:
+            if self.players[p]['RosterScore'] == -1:
                 return False
         else:
             return True

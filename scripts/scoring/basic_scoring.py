@@ -11,9 +11,10 @@ from roster_generator_object import RosterGenerator
 class BasicScoring(RosterGenerator):
 
     # Set the roster score as the average score
+    #-------------------------------------------------------------------------------
     def GenerateRoster(self):
 
-        for p in self.roster.GetIds:
+        for p in self.roster.GetIds():
             self.roster.SetScore(p, self.roster.GetPlayer(p)['Score'])
 
         return self.roster

@@ -6,6 +6,7 @@
 ################################################################################
 
 from lineup_generator_object import LineupGenerator
+from lineup_object import Lineup
 from random import randint
 from copy import deepcopy
 
@@ -13,10 +14,29 @@ from copy import deepcopy
 #-------------------------------------------------------------------------------
 class BasicLineup(LineupGenerator):
 
-    # Randomly searches to find groups that are acceptable and have high score
+    # Calls the lineup generator a few times and picks the best result
     #-------------------------------------------------------------------------------
     def GenerateLineup(self):
 
+        # Retains the current best lineup
+        currentbest = Lineup(self.positions)
+
+        # calls the background lineup generator a few times and picks the best
+        for i in range(10):
+            print '.'
+            self.lineup = Lineup(self.positions)
+            newlineup = self._GenerateLineup()
+            if newlineup.Score() >= currentbest.Score():
+                currentbest = newlineup
+        print
+        self.lineup = currentbest
+        
+        return currentbest
+    
+    # Randomly searches to find groups that are acceptable and have high score
+    #-------------------------------------------------------------------------------
+    def _GenerateLineup(self):
+        
         # Numeric string elements, to be removed from position values
         numic = '0123456789'
         # Get the players in a dictionary indexed by position
@@ -25,12 +45,12 @@ class BasicLineup(LineupGenerator):
         budget = self.params['Budget'] if 'Budget' in self.params else 1e1000
 
         # Randomly generate a lineup
-        for p in self.lineup.positions:
+        for p in self.positions:
             # Try as many random players as neccessary to get a unique player for each position 
-            while self.lineup.ChangePlayer(p, groups[p.strip(numic)][randint(0,len(groups[p.strip(numic)])-1)]): pass
+            while not self.lineup.ChangePlayer(p, groups[p.strip(numic)][randint(0,len(groups[p.strip(numic)])-1)]): pass
 
         # Determine the number of itterations
-        itter = self.params['Itter'] if 'Itter' in self.params else 5000
+        itter = self.params['Itter'] if 'Itter' in self.params else 10000
 
         # Randomly swap players and keep better combinations
         for i in range(itter):
@@ -39,13 +59,13 @@ class BasicLineup(LineupGenerator):
             # Number of positions to be swapped
             ntoswap = (i % 4) + 2
             # Which positions to be swapped
-            swaps = list(positions[randint(0,len(positions)-1)] for p in ntoswap)
+            swaps = list(self.positions[randint(0,len(self.positions)-1)] for p in range(ntoswap))
             # Create a copy to manipulate
             new_lineup = deepcopy(self.lineup)
 
             # Make random swaps
             for p in swaps:
-                while new_lineup.ChangePlayer(p, groups[p.strip(numic)][randint(0,len(groups[p.strip(numic)])-1)]): pass
+                while not new_lineup.ChangePlayer(p, groups[p.strip(numic)][randint(0,len(groups[p.strip(numic)])-1)]): pass
 
             # Determine the score of the new lineup
             newscore = 0 if new_lineup.Cost() > budget else new_lineup.Score()

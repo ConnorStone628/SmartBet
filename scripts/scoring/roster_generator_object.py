@@ -16,12 +16,26 @@ class RosterGenerator(object):
     # Initializes the object with a list of players and constraint parameters
     # players: A dictionary of players for the day, indexed by their unique id
     # params: A dictionary of parameters to be used when determining the scores
+    #-------------------------------------------------------------------------------
     def __init__(self, players, params):
 
         self.roster = Roster(players)
         self.params = params
 
     # Analyzes the given players to determine their scores
+    #-------------------------------------------------------------------------------
     def GenerateRoster(self):
 
         return self.roster
+
+    # Returns the roster object being used
+    #-------------------------------------------------------------------------------
+    def GetRoster(self):
+
+        return self.roster
+
+    # Returns the parameters used in this roster generator
+    #-------------------------------------------------------------------------------
+    def GetParams(self):
+
+        return self.params
