@@ -21,3 +21,15 @@ lower (in sub-folders). This means, for example, that code in the "lineup" and
 code needs to write to the database or read from it, then you do not do this
 directly. Insted you request a database object as an argument to your function
 or class and work with that.
+
+# General flow
+#-------------------------------------------------------------------------------
+On a typical day, here is how the code is expected to run:
+ - Scrapers are run to collect the day's information
+ - This information is passed to the database, which stores/organizes it
+ - A scoring generator is created, and given a dictionary of players for the day
+ - The scoring generator creates a Roster object and gives every player a score
+ - The Roster object is passed to a lineup generator
+ - The lineup generator is run to create a Lineup object which is the best
+     possible combination of players for that day
+ - The lineup is entered into the appropriate website to get $$$
