@@ -91,3 +91,13 @@ Taylor to be added.
 You will not do merges directly. Just tell Matthew or Connor that
 you have finished your modifications, or have completed some
 independantly functioning chunk of code and we will do the merge.
+
+# Logs
+#-------------------------------------------------------------------------------
+As you edit and commit changes, make sure to write descriptive
+comments with each commit. You can then use:
+git log --graph
+
+To view a tree showing the structure of the changes that have
+been made over a given time period. Beside each commit
+(dennoted by a "*") will be your comment.
