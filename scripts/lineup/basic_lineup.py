@@ -18,17 +18,20 @@ class BasicLineup(LineupGenerator):
     #-------------------------------------------------------------------------------
     def GenerateLineup(self):
 
-        # Retains the current best lineup
         currentbest = Lineup(self.positions)
 
         # calls the background lineup generator a few times and picks the best
-        for i in range(10):
-            print '.'
-            self.lineup = Lineup(self.positions)
-            newlineup = self._GenerateLineup()
-            if newlineup.Score() >= currentbest.Score():
-                currentbest = newlineup
-        print
+        try:
+            for i in range(10):
+                print '.'
+                self.lineup = Lineup(self.positions)
+                newlineup = self._GenerateLineup()
+                # Check which is better
+                if newlineup.Score() >= currentbest.Score():
+                    currentbest = newlineup
+        # If you end it early, it will just take the best it has
+        except KeyboardInterrupt:
+            pass
         self.lineup = currentbest
         
         return currentbest
@@ -72,5 +75,5 @@ class BasicLineup(LineupGenerator):
 
             # Replace the lineup if the new one is better
             if newscore >= oldscore: self.lineup = new_lineup
-            
+
         return self.lineup

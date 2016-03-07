@@ -85,14 +85,17 @@ class Roster(object):
     def GetGroupedAttributes(self, attributes = None):
 
         grouped = {}
+        # Add the attributes for every player
         for p in self.players:
             player = self.players[p]
             if attributes == None:
+                # Set the attribute as the whole player
                 attr = player
             else:
-                attr = []
-                for a in attributes:
-                    attr.append(player[a])
+                # Collect a list of attributes
+                attr = list(player[a] for a in attributes)
+
+            # Make a list for each type of position
             try:
                 grouped[player['Position']].append(attr)
             except:
@@ -107,5 +110,5 @@ class Roster(object):
         for p in self.players:
             if self.players[p]['RosterScore'] == -1:
                 return False
-        else:
-            return True
+
+        return True

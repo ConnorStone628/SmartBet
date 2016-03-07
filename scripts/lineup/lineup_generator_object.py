@@ -28,10 +28,8 @@ class LineupGenerator(object):
         self.lineup = Lineup(positions)
 
         # Check that the roster and positions objects do not conflict
-        player_positions = []
-        for i in self.roster.GetIds():
-            player_positions.append(self.roster.GetPlayer(i)['Position'])
-            
+        player_positions = list(self.roster.GetPlayer(i)['Position'] for i in self.roster.GetIds())
+        # As the order may differ, compare them as sets
         if len(set(player_positions).symmetric_difference(set(p.strip('0123456789') for p in positions))) != 0:
             raise ValueError('Roster and positions objects do not have the same positions.')
         

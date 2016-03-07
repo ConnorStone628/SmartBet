@@ -17,16 +17,14 @@ class Lineup(object):
     #     dictionary of information about that player (dictionary of dictionaries)
     # returns: nothing
     #-------------------------------------------------------------------------------
-    def __init__(self, positions, initiallineup = None):
+    def __init__(self, positions):
 
         self.positions = positions
-        if initiallineup != None:
-            self.players = initiallineup
-        else:
-            # initialize an empty playlist
-            self.players = {}
-            for p in positions:
-                self.players[p] = None
+
+        # initialize an empty playlist
+        self.players = {}
+        for p in positions:
+            self.players[p] = None
 
     # Replaces the player at a given position
     # position: position to replace (str)
