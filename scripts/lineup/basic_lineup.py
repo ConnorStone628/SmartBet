@@ -33,6 +33,10 @@ class BasicLineup(LineupGenerator):
         except KeyboardInterrupt:
             pass
         self.lineup = currentbest
+
+        # Check that the lineup satisfies the budget
+        if 'Budget' in self.params and self.lineup.Cost() > self.params['Budget']:
+            print 'WARNING! could not find lineup within the budget.'
         
         return currentbest
     
